@@ -7,3 +7,10 @@ for(let i = 0; i < gridSize; i++){
         container.appendChild(pixel);
     }
 }
+
+container.addEventListener('mouseover', e => {
+    console.log(e.target);
+    if(e.target.tagName === 'DIV' && e.target.className !== 'container'){
+        e.target.style.backgroundColor = "black";
+    }
+});
