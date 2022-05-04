@@ -1,0 +1,13 @@
+.container{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+    max-width: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.container div{
+    border: 1px solid black;
+    padding: calc(3.125% - 3px);
+}
