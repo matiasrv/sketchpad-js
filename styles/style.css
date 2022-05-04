@@ -1,13 +1,16 @@
 .container{
-    box-sizing: border-box;
+    border: 5px solid grey;
+
+    /* box-sizing: border-box; */
     margin: 0;
     padding: 0px;
-    max-width: 100vh;
+    max-width: 75vh;
+    min-height: 75vh;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 3px;
 }
 .container div{
-    border: 1px solid black;
-    padding: calc(3.125% - 3px);
+    box-sizing: border-box;
+    border: 1px solid grey;
 }
