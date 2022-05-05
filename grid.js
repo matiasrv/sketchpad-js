@@ -13,15 +13,21 @@ function generateGrid(side){
             let pixel = document.createElement('div');
             pixel.style.width = (containerWidth/side) -1/side  + "px";
             container.appendChild(pixel);
-            console.log(pixel)
         }
     }
 }
-container.addEventListener('mouseover', e => {
-    console.log(e.target);
+function draw(e){
     if(e.target.tagName === 'DIV' && e.target.className !== 'container'){
         e.target.style.backgroundColor = "black";
     }
+};
+container.addEventListener('mousedown', event =>{
+    draw(event);
+    container.addEventListener('mouseover', draw);
+});
+
+container.addEventListener('mouseup', () => {
+    container.removeEventListener('mouseover', draw);
 });
 
 generateGrid(gridSize);
