@@ -8,10 +8,10 @@ function generateGrid(side){
     while(container.childNodes.length > 0){
         container.removeChild(container.firstChild);
     }
+    container.style["grid-template-columns"] = "repeat(" + side + ", 1fr)";
     for(let i = 0; i < side; i++){
         for(let j = 0; j < side; j++){
             let pixel = document.createElement('div');
-            pixel.style.width = (containerWidth/side) -1/side  + "px";
             container.appendChild(pixel);
         }
     }

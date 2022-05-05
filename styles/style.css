@@ -4,30 +4,26 @@ body{
 .flex{
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: auto;
     margin: 50px;
     background-color: rgb(51, 94, 94);
 }
 .container{
     user-select: none; /*needed to avoid selecting other elements while drawing*/
     border: 5px solid grey;
-
     background-color: rgba(255, 255, 255, .5);
-    /* box-sizing: border-box; */
-    margin: 0;
-    padding: 0px;
-    width: 75vh;
-    height: 75vh;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 800px;
+    aspect-ratio: 1/1;
+    display: grid;
 }
 .container div{
     box-sizing: border-box;
     border: 1px solid grey;
 }
 #options{
+    flex: 0 1 auto;
     padding: 20px;
+    margin-left: 20px;
     text-align: center;
     font-weight: bolder;
     font-size: 24px;
