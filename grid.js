@@ -1,24 +1,26 @@
 const container = document.querySelector('.container');
-const containerStyle = document.defaultView.getComputedStyle(container);
-containerWidth = containerStyle.width.slice(0, -2);
+const colorPicker = document.querySelector('#colorpick');
+const gridSize = document.querySelector('#gridsize');
+const updateBtn = document.querySelector('#update');
+gridSize.value = 8;
+colorPicker.value = '#000000';
+updateBtn.textContent = gridSize.value;
 
-const gridSize = 8;
-
-function generateGrid(side){
+function generateGrid(){
     while(container.childNodes.length > 0){
         container.removeChild(container.firstChild);
     }
-    container.style["grid-template-columns"] = "repeat(" + side + ", 1fr)";
-    for(let i = 0; i < side; i++){
-        for(let j = 0; j < side; j++){
+    container.style["grid-template-columns"] = "repeat(" + gridSize.value + ", 1fr)";
+    for(let i = 0; i < gridSize.value; i++){
+        for(let j = 0; j < gridSize.value; j++){
             let pixel = document.createElement('div');
             container.appendChild(pixel);
         }
     }
-}
+};
 function draw(e){
     if(e.target.tagName === 'DIV' && e.target.className !== 'container'){
-        e.target.style.backgroundColor = "black";
+        e.target.style.backgroundColor = colorPicker.value;
     }
 };
 function undraw(e){
@@ -46,8 +48,7 @@ container.addEventListener('mouseleave', (e) => {
     container.removeEventListener('mouseover', undraw);
 });
 
-
-generateGrid(gridSize);
+generateGrid();
 
 function clearGrid(){
     container.childNodes.forEach(child =>{
@@ -57,3 +58,6 @@ function clearGrid(){
 
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearGrid);
+
+updateBtn.addEventListener('click', () => generateGrid())
+gridSize.addEventListener('change', ()=> updateBtn.textContent = gridSize.value);

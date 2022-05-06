@@ -1,5 +1,8 @@
 body{
     background-color: rgb(61, 122, 122);
+    font-size: 20px;
+    text-align: center;
+    color: azure;
 }
 .flex{
     display: flex;
@@ -11,7 +14,7 @@ body{
 .container{
     user-select: none; /*needed to avoid selecting other elements while drawing*/
     border: 5px solid grey;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, 1);
     width: 800px;
     aspect-ratio: 1/1;
     display: grid;
@@ -22,13 +25,25 @@ body{
 }
 #options{
     flex: 0 1 auto;
-    padding: 20px;
+    padding: 20px 50px;
     margin-left: 20px;
-    text-align: center;
     font-weight: bolder;
-    font-size: 24px;
     background-color: cadetblue;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
+    align-items: center;
+}
+#options div{
+    display: flex;
+}
+button{
+    font-size: 20px;
+    margin: 0 10px;
+    padding: 0 15px;
+    width: auto;
+    box-shadow: 3px 3px;
+}
+input{
+    margin: 10px;
 }
